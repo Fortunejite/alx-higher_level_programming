@@ -7,7 +7,7 @@ if number < 0:
 else:
     remainder = number % 10
 
-if remainder > 5:
+elif remainder > 5:
     print("Last digit of {} is {} and is greater than 5"
           .format(number, remainder))
 elif remainder is 0:
