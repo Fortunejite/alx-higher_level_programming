@@ -1,4 +1,4 @@
-#include <Python.h>
+#include <lists.h>
 
 /*
 includes listobject.h
