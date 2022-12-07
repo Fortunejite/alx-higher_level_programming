@@ -4,6 +4,8 @@ def best_score(a_dictionary):
         return None
     num = 0
     for i in a_dictionary:
+        if a_dictionary[i] == None:
+            return None
         if a_dictionary[i] > num:
             num = a_dictionary[i]
             us = i
