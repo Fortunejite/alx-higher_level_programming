@@ -1,16 +1,26 @@
 #!/usr/bin/python3
+""""
+
+This module contains a function that prints a name
+
 """
-Moudle 3-say_my_name
-It prints the first and last name entered
-Also it do some test for perfect code
-"""
+
+
 def say_my_name(first_name, last_name=""):
-    """
-    The moudle that dies everything
-    """
+    '''This function prints name (<first name> <last name>)
+
+    Args:
+        first_name (str): The fisrt name to be printed
+        last_name (str): The last name to be printed
+
+    Raises:
+        TypeError: If either the first_name and last_name are not strings
+
+    '''
+
     if not isinstance(first_name, str):
         raise TypeError("first_name must be a string")
-    elif not isinstance(last_name, str):
+
+    if not isinstance(last_name, str):
         raise TypeError("last_name must be a string")
-    else:
-        print(f"My name is {first_name} {last_name}")
+    print(f"My name is {first_name} {last_name}")

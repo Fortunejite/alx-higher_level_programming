@@ -1,16 +1,26 @@
 #!/usr/bin/python3
 """
-Module 0-add_integer
-Contains ome method that adds up num
-Accepts two integer then converts to int before adding
+
+This module has one function that adds up 2 integers
+
 """
+
+
 def add_integer(a, b=98):
+    """Return the sum of two integers or floats as integers
+
+    Args:
+        a: first argument
+        b: second argument
+
+    Returns:
+        Sum of the two arguments
+
+    Raises:
+        TypeError: If either of the arguments not an integer or a float
     """
-    Returns a + b
-    """
-    if not isinstance(a, (int, float)):
+    if ((not isinstance(a, int) and not isinstance(a, float))):
         raise TypeError("a must be an integer")
-    elif not isinstance(b, (int, float)):
+    if ((not isinstance(b, int) and not isinstance(b, float))):
         raise TypeError("b must be an integer")
-    else:
-        return int(a) + int(b)
+    return (int(a) + int(b))
