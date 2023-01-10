@@ -1,8 +1,18 @@
 #!/usr/bin/python3
-"""Morule they reads a given file"""
+""" Module that contains a function that reads from a file """
 
 
 def read_file(filename=""):
-    """prints the content of filename to stdoit"""
-    with open(filename, encoding="utf-8") as f:
-        print(f.read(), end='')
+    """ Function that reads from a file
+
+    Args:
+        filename: filename
+
+    Raises
+        Exception: when the file can be opened
+
+    """
+
+    with open(filename, 'r', encoding="utf-8") as f:
+        read_data = f.read()
+        print(read_data, end='')
