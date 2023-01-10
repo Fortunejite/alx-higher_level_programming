@@ -14,5 +14,6 @@ for i in sys.argv:
     args.append(i)
 args = args[1:]
 try:
-    save(args, 'add_iteexcept:
-            pass
+    save(args, 'add_item.json')
+except:
+    pass
