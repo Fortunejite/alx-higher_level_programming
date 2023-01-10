@@ -10,9 +10,15 @@ try:
     args = load('add_item.json')
 except:
     args = []
+index = 0
 for i in sys.argv:
-    args.append(i)
-args = args[1:]
+    if index == 0:
+        index += 1
+        continue
+    else:
+        args.append(i)
+        index += 1
+
 try:
     save(args, 'add_item.json')
 except:
