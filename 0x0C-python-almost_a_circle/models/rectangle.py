@@ -131,3 +131,12 @@ class Rectangle(Base):
                     self.y = kwargs[i]
                 else:
                     continue;
+
+    def to_dictionary(self):
+        dic = {}
+        dic['x'] = self.x
+        dic['y'] = self.y
+        dic['id'] = self.id
+        dic['height'] = self.height
+        dic['width'] = self.width
+        return dic
