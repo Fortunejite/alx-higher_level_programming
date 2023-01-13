@@ -115,6 +115,19 @@ class Rectangle(Base):
                     self.x = arg[3]
                 elif i == 4:
                     self.y = args[4]
+                else:
+                    continue
         else:
             for i in kwargs:
-                self.i = kwargs[i]
+                if i == "id":
+                    self.id = kwargs[i]
+                elif i == "width":
+                    self.width = kwargs[i]
+                elif i == "height":
+                    self.height = kwargs[i]
+                elif i == "x":
+                    self.x = kwargs[i]
+                elif i == "y":
+                    self.y = kwargs[i]
+                else:
+                    continue;
