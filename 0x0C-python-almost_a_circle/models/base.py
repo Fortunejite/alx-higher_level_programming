@@ -44,10 +44,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        if cls.__name__ == 'Rectangle':
-            dummy = cls(5, 6)
-        elif cls.__name == 'Square':
-            dummy = cls(5)
+        dummy = cls(3, 3)
         for i in dictionary:
             if i == "id":
                 dummy.update(id=dictionary[i])
@@ -65,3 +62,17 @@ class Base:
                 continue;
         return dummy
 
+    @classmethod
+    def load_from_file(cls):
+        name = cls.__name__ + '.json'
+        list_ = []
+        try:
+            with open(name, 'r') as f:
+                string = f.read()
+            string = Base.from_json_string(string)
+            for i in string:
+                r = cls.create(**i)
+                list_.append(r)
+            return list_
+        except FileNotFoundError:
+            return []
