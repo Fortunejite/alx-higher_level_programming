@@ -3,17 +3,21 @@
 
 
 from models.rectangle import Rectangle
+
+
 class Square(Rectangle):
     """Square that inherits from Rectanglr"""
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(id=id, width=size, height=size, x=x, y=y)
 
     def __str__(self):
-        return "[square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
+        message = f"[square] ({self.id}) {self.x}/{self.y} - {self.width}"
+        return message
 
     @property
     def size(self):
         return self.width
+
     @size.setter
     def size(self, value):
         self.width = value
@@ -46,7 +50,7 @@ class Square(Rectangle):
                 elif i == "y":
                     self.y = kwargs[i]
                 else:
-                    continue;
+                    continue
 
     def to_dictionary(self):
         dic = {}

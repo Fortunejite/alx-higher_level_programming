@@ -3,6 +3,8 @@
 
 
 from models.base import Base
+
+
 class Rectangle(Base):
     """Representation of a rectangle that inherits from base"""
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -34,10 +36,11 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         else:
             self.__y = y
-    
+
     @property
     def width(self):
         return self.__width
+
     @width.setter
     def width(self, value):
         if not isinstance(value, int):
@@ -50,6 +53,7 @@ class Rectangle(Base):
     @property
     def height(self):
         return self.__height
+
     @height.setter
     def height(self, value):
         if not isinstance(value, int):
@@ -62,6 +66,7 @@ class Rectangle(Base):
     @property
     def x(self):
         return self.__x
+
     @x.setter
     def x(self, value):
         if not isinstance(value, int):
@@ -74,6 +79,7 @@ class Rectangle(Base):
     @property
     def y(self):
         return self.__y
+
     @y.setter
     def y(self, value):
         if not isinstance(value, int):
@@ -92,16 +98,18 @@ class Rectangle(Base):
         for i in range(self.y):
             print()
         for i in range(self.height):
-            print(" " * self.x, end="");
+            print(" " * self.x, end="")
             print("#" * self.width)
 
     def __str__(self):
         """Change the representation of the instance"""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
+        n = "Rectangle"
+        d = self.id
+        return f"[{n}] ({d}) {self.x}/{self.y} - {self.width}/{self.height}"
 
     def update(self, *args, **kwargs):
         """update the attribute"""
-        
+
         if len(args) != 0:
             arg = list(args)
             for i in range(len(arg)):
@@ -130,7 +138,7 @@ class Rectangle(Base):
                 elif i == "y":
                     self.y = kwargs[i]
                 else:
-                    continue;
+                    continue
 
     def to_dictionary(self):
         dic = {}

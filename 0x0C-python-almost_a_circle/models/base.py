@@ -1,10 +1,13 @@
 #!/usr/bin/python3
-"""The base module for this project."""
+"""The base module for this project.
+"""
 
 
 class Base:
-    """The base class for this project"""
+    """The base class for this project
+    """
     __nb_objects = 0
+
     def __init__(self, id=None):
         if id is not None:
             self.id = id
@@ -14,7 +17,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        if list_dictionaries == None or list_dictionaries == []:
+        if list_dictionaries is None or list_dictionaries == []:
             return "[]"
         import json
         return json.dumps(list_dictionaries)
@@ -59,7 +62,7 @@ class Base:
             elif i == 'width':
                 dummy.update(width=dictionary[i])
             else:
-                continue;
+                continue
         return dummy
 
     @classmethod
