@@ -83,3 +83,24 @@ class Base:
             return list_
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        name = cls.__name__ + ".csv"
+        header = ['id', 'width', 'height', 'x', 'y']
+        rows = []
+        import csv
+        with open(name, 'w', encoding='utf-8') as f:
+            csvwriter = csv.writer(f)
+            csvwriter.writerow(header)
+            if cls.__name__ == 'Rectangle':
+                for i in list_objs:
+                    rows= []
+                    rows.append(i.id)
+                    rows.append(i.width)
+                    rows.append(i.height)
+                    rows.append(i.x)
+                    rows.append(i.y)
+                    csvwriter.writerow(rows)
+            elif cls.__name__ == 'Square':
+

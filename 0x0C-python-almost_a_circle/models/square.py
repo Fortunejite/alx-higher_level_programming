@@ -11,7 +11,7 @@ class Square(Rectangle):
         super().__init__(id=id, width=size, height=size, x=x, y=y)
 
     def __str__(self):
-        message = f"[square] ({self.id}) {self.x}/{self.y} - {self.width}"
+        message = f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
         return message
 
     @property
@@ -44,7 +44,7 @@ class Square(Rectangle):
                 if i == "id":
                     self.id = kwargs[i]
                 elif i == "size":
-                    self.width = kwargs[i]
+                    self.size = kwargs[i]
                 elif i == "x":
                     self.x = kwargs[i]
                 elif i == "y":
