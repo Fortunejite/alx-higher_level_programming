@@ -93,7 +93,9 @@ class Base:
         with open(name, 'w', encoding='utf-8') as f:
             csvwriter = csv.writer(f)
             csvwriter.writerow(header)
-            if cls.__name__ == 'Rectangle':
+            if list_objs is None:
+                pass
+            elif cls.__name__ == 'Rectangle':
                 for i in list_objs:
                     rows= []
                     rows.append(i.id)
@@ -103,4 +105,22 @@ class Base:
                     rows.append(i.y)
                     csvwriter.writerow(rows)
             elif cls.__name__ == 'Square':
-
+                for i in list_objs:
+                    rows= []
+                    rows.append(i.id)
+                    rows.append(i.size)
+                    rows.append(i.x)
+                    rows.append(i.y)
+                    csvwriter.writerow(rows)
+    @classmethod
+    def load_from_file_csv(cls):
+        import csv
+        name = cls.__name__ + '.csv'
+        with open(name, 'r') as f:
+            csvr = csv.reader(f)
+            rows = []
+            next(csvr)
+            for i in csvr:
+                
+                rows.append(r)
+            return rows
