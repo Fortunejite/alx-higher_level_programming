@@ -121,6 +121,12 @@ class Base:
             rows = []
             next(csvr)
             for i in csvr:
-                
+                if cls.__name__ == "Rectangle":
+                    width = int(i[1])
+                    r = cls(width, int(i[2]), int(i[3]), int(i[4]))
+                    r.id = int(i[0])
+                elif cls.__name__ == "Square":
+                    r = cls(int(i[1]), int(i[2]), int(i[3]))
+                    r.id = int(i[0])
                 rows.append(r)
             return rows
