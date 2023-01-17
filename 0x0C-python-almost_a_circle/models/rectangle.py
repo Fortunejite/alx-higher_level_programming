@@ -7,7 +7,7 @@ class Rectangle(Base):
     """Representation of a rectangle that inherits from base."""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        Initialize a new Rectangle.
+        """Initialize a new Rectangle.
         Args:
             width (int): The width of the new Rectangle.
             height (int): The height of the new Rectangle.
