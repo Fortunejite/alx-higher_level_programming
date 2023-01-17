@@ -97,7 +97,7 @@ class Base:
                 pass
             elif cls.__name__ == 'Rectangle':
                 for i in list_objs:
-                    rows= []
+                    rows = []
                     rows.append(i.id)
                     rows.append(i.width)
                     rows.append(i.height)
@@ -106,12 +106,13 @@ class Base:
                     csvwriter.writerow(rows)
             elif cls.__name__ == 'Square':
                 for i in list_objs:
-                    rows= []
+                    rows = []
                     rows.append(i.id)
                     rows.append(i.size)
                     rows.append(i.x)
                     rows.append(i.y)
                     csvwriter.writerow(rows)
+
     @classmethod
     def load_from_file_csv(cls):
         import csv
