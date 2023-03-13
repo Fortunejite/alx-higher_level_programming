@@ -11,7 +11,6 @@ if (arg.length < 3) {
   }
   arg.shift();
   arg.shift();
-  console.log(Math.max(arg));
-  arg.splice(arg.indexOf(Math.max(arg)), arg.indexOf(Math.max(arg)));
-  console.log(Math.max(arg));
+  arg.sort(function(a, b){return a - b});
+  console.log(arg[arg.length - 2]);
 }
