@@ -1,7 +1,7 @@
 #!/usr/bin/node
 const process = require('process');
 const arg = process.argv;
-num = parseInt(arg[2]);
+const num = parseInt(arg[2]);
 function factorial (a) {
   if (isNaN(a)) {
     return 1;
