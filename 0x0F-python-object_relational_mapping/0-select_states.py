@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-# gets all states via python yee boi
+""" gets all states via python yee boi"""
 
 
 def main(args):
-    # gets all state stuff
+    """ gets all state stuff"""
     if len(args) != 4:
         raise Exception("need 3 arguments!")
     db = MySQLdb.connect(host='localhost',
