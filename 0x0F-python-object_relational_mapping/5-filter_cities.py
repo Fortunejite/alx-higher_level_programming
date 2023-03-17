@@ -21,7 +21,7 @@ def main(args):
         if states.index(i) == len(states) - 1:
             for state in i:
                 print(str(state))
-                break;
+                return
         for state in i:
             print(str(state), end=", ") 
 
