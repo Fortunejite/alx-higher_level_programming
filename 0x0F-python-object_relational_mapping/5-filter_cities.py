@@ -17,13 +17,7 @@ def main(args):
     JOIN states ON cities.state_id = states.id AND states.name = %s
     ORDER BY cities.id ASC""", (args[4],))
     states = cur.fetchall()
-    for i in states:
-        if states.index(i) == len(states) - 1:
-            for state in i:
-                print(str(state))
-                return
-        for state in i:
-            print(str(state), end=", ") 
+    print(", ".join(map(lambda x: "%s" % x, states)))
 
 
 if __name__ == "__main__":
