@@ -1,4 +1,4 @@
-#!/usr/bin/pyhon3
+#!/usr/bin/python3
 """Module that returns all the ibject in the database"""
 
 
@@ -7,17 +7,19 @@ def main(arg):
     if len(arg) != 4:
         raise Exception("need 3 arguments!")
     url = 'mysql+mysqldb://{}:{}@localhost/{}'.format(arg[1], arg[2], arg[3])
-    engine = create_engine(url)
+    engine = create_engine(url, pool_pre_ping=True)
+    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).order_by(states.id).all()
+    states = session.query(State).order_by(State.id).all()
     for state in states:
         print(f"{state.id}: {state.name}")
-
+    session.close()
 
 if __name__ == "__main__":
     from model_state import Base, State
     from sys import argv
     from sqlalchemy import create_engine
     from sqlalchemy.orm import sessionmaker
+    from sqlalchemy import MetaData
     main(argv)
