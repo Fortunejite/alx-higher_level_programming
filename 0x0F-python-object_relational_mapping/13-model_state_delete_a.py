@@ -11,9 +11,9 @@ def main(arg):
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    new = session.query(State).filter(State.id == 2).first()
-    new.name = "New Mexico"
-    session.add(new)
+    states = session.query(State).filter(State.name.like("%a%")).all()
+    for state in states:
+        session.delete(state)
     session.commit()
     session.close()
 
