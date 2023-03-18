@@ -12,10 +12,10 @@ def main(arg):
     Session = sessionmaker(bind=engine)
     session = Session()
     state = session.query(State).order_by(State.id).first()
-    if (state == NULL):
+    if state:
+        print(f"{state.id}: {state.name}")
+    else:
         print("Nothing")
-        return;
-    print(f"{state.id}: {state.name}")
     session.close()
 
 
