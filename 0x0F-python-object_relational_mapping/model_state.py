@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-from SQLAlchemy.orm import declarative_base
-from SQLAlchemy import Column, String, Integer
+from sqlalchemy.orm import declarative_base
+from sqlalchemy import Column, String, Integer
 
 """Using sqlqlchemy ti create sql tables to python class """
 
