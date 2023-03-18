@@ -11,9 +11,8 @@ def main(arg):
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).order_by(State.id).all()
-    for state in states:
-        print(f"{state.id}: {state.name}")
+    state = session.query(State).order_by(State.id).first()
+    print(f"{state.id}: {state.name}")
     session.close()
 
 
