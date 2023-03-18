@@ -4,17 +4,18 @@
 
 def main(arg):
     """The main function where all the codes are written """
-    if len(arg) != 4:
-        raise Exception("need 3 arguments!")
+    if len(arg) != 5:
+        raise Exception("need 4 arguments!")
     url = 'mysql+mysqldb://{}:{}@localhost/{}'.format(arg[1], arg[2], arg[3])
     engine = create_engine(url, pool_pre_ping=True)
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).filter(
-            State.name.like("%a%")).order_by(State.id).all()
-    for state in states:
-        print(f"{state.id}: {state.name}")
+    states = session.query(State).filter(State.name == arg[4]).first()
+    if states:
+        print(f"{states.id}")
+    else:
+        print("Not found")
     session.close()
 
 
