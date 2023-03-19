@@ -15,8 +15,7 @@ if __name__ == "__main__":
         db=sys.argv[3]
     )
     cursor = db.cursor()
-    qurey = cursor.prepare("SELECT * FROM states WHERE name LIKE '%s' ORDER BY id ASC;")
-    cursor.execute(qurey,(sys.argv[4]))
+    cur.execute("SELECT * FROM states WHERE name=%s;", (sys.argv[4],))
     result = cursor.fetchall()
     for row in result:
         print(row)
