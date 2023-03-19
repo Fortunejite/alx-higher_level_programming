@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, String, Integer
+from sqlalchemy import Column, String, Integer, MeteData
 
 """Using sqlqlchemy ti create sql tables to python class """
 
 
-Base = declarative_base()
+mdata=MetaData()
+Base = declarative_base(metadata=mdata)
 
 
 class State(Base):
